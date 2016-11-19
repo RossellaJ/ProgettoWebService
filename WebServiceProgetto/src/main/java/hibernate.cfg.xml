@@ -17,8 +17,8 @@ lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.htm
 
 
 <property name="connection.url">jdbc:oracle:thin:@localhost:1521:xe</property> 
-<property name="connection.username">azienda</property>
-<property name="connection.password">azienda</property>
+<property name="connection.username">webservice</property>
+<property name="connection.password">webservice</property>
 <!-- JDBC connection pool (use the built-in) -->
 <property name="connection.pool_size">1</property>
 <!-- SQL dialect -->
@@ -32,12 +32,8 @@ lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.htm
 <!-- Drop and re-create the database schema on startup -->
 <property name="hbm2ddl.auto">update</property>
 
-<mapping class="it.alfa.rossella.UtenteBean" />
-<mapping class="it.alfa.rossella.AdminBean" />
-<mapping class="it.alfa.rossella.ClienteBean" />
-<mapping class="it.alfa.rossella.DipendenteBean" />
-<mapping class="it.alfa.rossella.model.Rubrica" />
-<mapping class="it.alfa.rossella.model.Voce" />
+<mapping class="it.alfasoft.rossella.model.Fattura" />
+
 
 </session-factory>
 </hibernate-configuration>

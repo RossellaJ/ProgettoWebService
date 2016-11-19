@@ -1,10 +1,12 @@
 package it.alfasoft.rossella.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.xml.crypto.Data;
+
 
 @Entity
 public class Fattura {
@@ -13,7 +15,7 @@ public class Fattura {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	
-	private Data data;
+	private Date data;
 	private double importo;
 	private String codiceAziendale;
 	
@@ -25,7 +27,7 @@ public class Fattura {
 
 
 
-	public Fattura(Data data, double importo, String codiceAziendale) {
+	public Fattura(Date data, double importo, String codiceAziendale) {
 		this.data = data;
 		this.importo = importo;
 		this.codiceAziendale = codiceAziendale;
@@ -45,13 +47,13 @@ public class Fattura {
 
 
 
-	public Data getData() {
+	public Date getData() {
 		return data;
 	}
 
 
 
-	public void setData(Data data) {
+	public void setData(Date data) {
 		this.data = data;
 	}
 
