@@ -36,7 +36,7 @@ public class RisorsaFattura {
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Fattura> prendiTutteFatture(){
 		
-		return new ArrayList<Fattura>();
+		return new ArrayList<Fattura>(s.getTutteFatture());
 	}
 
 	@POST

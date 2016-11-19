@@ -11,9 +11,13 @@ public class Main {
 		
 		Servizi s = new Servizi();
 		
+//		Date d = new Date();
+//		Fattura f1 = new Fattura(d,1500,"001");
+//		s.creaFattura(f1);
+		
 		Date d = new Date();
-		Fattura f1 = new Fattura(d,1500,"001");
-		s.creaFattura(f1);
+		Fattura f2 = new Fattura(d,2100,"002");
+		s.creaFattura(f2);
 
 	}
 
