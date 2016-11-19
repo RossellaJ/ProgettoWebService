@@ -1,5 +1,8 @@
 package it.alfasoft.rossella.service;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import it.alfasoft.rossella.dao.FatturaDao;
@@ -27,8 +30,29 @@ public class Servizi {
 	public List<Fattura> getTutteFatture(){
 		List<Fattura> listaFatture = fDao.readTutteFatture();
 		return listaFatture;
+	}
+	
+	//leggi le fatture con mese e anno
+	public List<Fattura> getFattureConMeseEAnno(Calendar dataC){
+		
+		int mese = dataC.get(Calendar.MONTH);
+		int anno = dataC.get(Calendar.YEAR);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		return null;
 		
 	}
+	
+	
 	
 	//aggiorna
 	

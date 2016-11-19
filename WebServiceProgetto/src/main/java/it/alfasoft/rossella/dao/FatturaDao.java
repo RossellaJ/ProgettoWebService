@@ -1,6 +1,8 @@
 package it.alfasoft.rossella.dao;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import it.alfasoft.rossella.model.Fattura;
@@ -87,6 +89,35 @@ public class FatturaDao {
 			
 			return listaFatture;
 			}
+			
+			//read tutte fatture con anno e mese
+			
+			public List<Fattura> readFattureConMeseEAnno(Calendar data){
+				List<Fattura> listaFatture = new ArrayList<Fattura>();
+				
+				Session session = HibernateUtil.openSession();
+				Transaction tx = null;
+				Fattura f = null;
+				try {	
+					tx = session.getTransaction();
+					tx.begin();
+					
+					Query query = session.createQuery("from Fattura where MONTH(data)=:meseInserito and YEAR(data)=:annoInserito ");
+					query.setInteger("meseInserito", data.get(Calendar.MONTH) );
+					query.setInteger("annoInserito", data.get(Calendar.YEAR) );
+					
+					listaFatture= query.list();
+						
+					tx.commit();
+					
+				} catch (Exception ex) {
+					tx.rollback();
+				} finally {
+					session.close();			
+				}		
+				return listaFatture;
+			}
+			
 			//3 update
 			
 			public boolean updateFattura(Fattura f) {
