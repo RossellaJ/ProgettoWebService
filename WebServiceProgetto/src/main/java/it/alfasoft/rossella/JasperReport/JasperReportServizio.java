@@ -14,6 +14,7 @@ import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+
 import it.alfasoft.rossella.dao.FatturaDao;
 import it.alfasoft.rossella.model.Fattura;
 
@@ -26,7 +27,7 @@ public class JasperReportServizio {
 		
 		String nomeFile="FatturaAzienda.pdf";
 		
-		String percorso  = "C:\\Users\\corso\\Desktop\\Jasper";
+		String percorso  = "C:\\Users\\corso\\Desktop\\Jasper\\";
 		 
 		String fileFinale=percorso+nomeFile;
 		
@@ -34,16 +35,16 @@ public class JasperReportServizio {
 			
 		//la mia lista che mantiene i dati
         List<Fattura> fatture = fDao.readTutteFatture();
-
-
+			
       // Converto la  lista to JRBeanCollectionDataSource 
       JRBeanCollectionDataSource itemsJRBean = new JRBeanCollectionDataSource(fatture,false);
-
+		
+			
       //  una mappa per mandare i parametri a Jasper 
       Map<String, Object> parameters = new HashMap<String, Object>();
     
       parameters.put("FatturaDataSource", itemsJRBean);
-      //parameters.put("importo", fDao.getImporto());
+      
 
       //  file compilato di jasper (.jasper) di Jasper Report per creare  PDF 
       JasperPrint jasperPrint = JasperFillManager.fillReport("formato.jasper", parameters, new JREmptyDataSource());
