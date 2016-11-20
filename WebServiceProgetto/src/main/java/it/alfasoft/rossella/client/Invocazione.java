@@ -8,8 +8,8 @@ import javax.ws.rs.client.WebTarget;
 public abstract class Invocazione {
 	
 	protected Client cliente = ClientBuilder.newClient();
-	protected  WebTarget basedTarget = cliente.target("http://localhost:8085/***/alfasoft");
-	protected WebTarget targetBustePaga = basedTarget.path("/***");
+	protected  WebTarget basedTarget = cliente.target("http://localhost:8086/AziendaJSF/alfasoft");
+	protected WebTarget targetBustePaga = basedTarget.path("/bustePaga");
 
 	
 	

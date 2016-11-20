@@ -19,26 +19,26 @@
 <h:form id="form">
    <p:growl id="msgs" showDetail="true"/>
  
-   <p:dataTable id="bustePaga" var="buste" value="#{fatturaController.richiestaListaFatture()}" style="margin-bottom:20px">
+   <p:dataTable id="bustePaga" var="buste" value="#{bustaPagaController.ottieniTutteBustePaga()}" style="margin-bottom:20px">
        
-       <p:column headerText="Codice Fattura">
+       <p:column headerText="Dipendente">
            <p:cellEditor>
-               <f:facet name="output"><h:outputText value="#{fat.codiceFattura}" /></f:facet>
-               <f:facet name="input"><p:inputText id="modelInput" value="#{fat.codiceFattura}" style="width:100%" label="Codice Fattura"/></f:facet>
+               <f:facet name="output"><h:outputText value="#{bustePaga.dipendente}" /></f:facet>
+               <f:facet name="input"><p:inputText id="modelInput" value="#{bustePaga.dipendente}" style="width:100%" label="Codice Fattura"/></f:facet>
            </p:cellEditor>
        </p:column>
  
        <p:column headerText="Data Emissione">
            <p:cellEditor>
-               <f:facet name="output"><h:outputText value="#{fat.data}" /></f:facet>
-               <f:facet name="input"><p:inputText value="#{fat.data}" style="width:100%" label="Data Emissione"/></f:facet>
+               <f:facet name="output"><h:outputText value="#{bustePaga.dataEmissione}" /></f:facet>
+               <f:facet name="input"><p:inputText value="#{bustePaga.dataEmissione}" style="width:100%" label="Data Emissione"/></f:facet>
            </p:cellEditor>
        </p:column>
  
        <p:column headerText="Importo">
            <p:cellEditor>
-               <f:facet name="output"><h:outputText value="#{fat.importo}" /></f:facet>
-               <f:facet name="input"><p:inputText value="#{fat.importo}" style="width:100%" label="Importo"/></f:facet>
+               <f:facet name="output"><h:outputText value="#{bustePaga.importo}" /></f:facet>
+               <f:facet name="input"><p:inputText value="#{bustePaga.importo}" style="width:100%" label="Importo"/></f:facet>
            </p:cellEditor>
        </p:column>
        
