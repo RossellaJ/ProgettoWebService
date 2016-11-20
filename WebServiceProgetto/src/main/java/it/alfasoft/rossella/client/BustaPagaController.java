@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.Response;
 
@@ -24,8 +25,7 @@ public class BustaPagaController {
 	
 	public List<BustaPaga> ottieniTutteBustePaga(){
 		
-		Response response= invocazione
-							.getTutteBustePaga()
+		Response response= invocazione.getTutteBustePaga()
 							.invoke();
 				
 				                     
