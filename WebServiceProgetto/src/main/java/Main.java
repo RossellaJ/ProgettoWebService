@@ -15,17 +15,22 @@ public class Main {
 		
 		Servizi s = new Servizi();
 		
-//		Date d = new Date();
-//		Fattura f1 = new Fattura(d,1500,"001");
-//		s.creaFattura(f1);
+		Date d = new Date();
+		Fattura f1 = new Fattura(d,1500,"001");
+		s.creaFattura(f1);
 		
-//		Date d = new Date();
-//		Fattura f2 = new Fattura(d,2100,"002");
-//		s.creaFattura(f2);
+		Date d2 = new Date();
+		Fattura f2 = new Fattura(d2,2100,"002");
+		s.creaFattura(f2);
 		
-		FatturaDao f = new FatturaDao();
+		Date d3 = new Date();
+		Fattura f3 = new Fattura(d3,2100,"002");
+		s.creaFattura(f3);
 		
-		System.out.println("la lista è:"+f.readFattureConMeseEAnno(Calendar.getInstance()));
+		
+//		FatturaDao f = new FatturaDao();
+//		
+//		System.out.println("la lista è:"+f.readFattureConMeseEAnno(Calendar.getInstance()));
 		
 		
 

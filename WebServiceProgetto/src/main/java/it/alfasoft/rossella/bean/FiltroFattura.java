@@ -6,8 +6,8 @@ public class FiltroFattura {
 	
 	private @QueryParam("mese")String mese;
 	private @QueryParam("anno") int anno;
-	private @QueryParam("offset") int offset; 
-	private @QueryParam("limit") int limit;
+//	private @QueryParam("offset") int offset; 
+//	private @QueryParam("limit") int limit;
 	
 	
 	public String getMese() {
@@ -22,18 +22,18 @@ public class FiltroFattura {
 	public void setAnno(int anno) {
 		this.anno = anno;
 	}
-	public int getOffset() {
-		return offset;
-	}
-	public void setOffset(int offset) {
-		this.offset = offset;
-	}
-	public int getLimit() {
-		return limit;
-	}
-	public void setLimit(int limit) {
-		this.limit = limit;
-	}
+//	public int getOffset() {
+//		return offset;
+//	}
+//	public void setOffset(int offset) {
+//		this.offset = offset;
+//	}
+//	public int getLimit() {
+//		return limit;
+//	}
+//	public void setLimit(int limit) {
+//		this.limit = limit;
+//	}
 	
 	
 

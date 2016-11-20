@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
-<!-- 2016-11-20T02:16:55 -->
+<!-- 2016-11-20T14:29:06 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="formato" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="246b775b-7f5c-42b0-9b7b-630c9bae1155">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
-	<parameter name="data" class="java.sql.Date"/>
-	<parameter name="importo" class="java.lang.Double"/>
+	<subDataset name="FatturaDataSource" uuid="32033561-52a7-4dd6-b53e-8a5201957942">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="data" class="java.util.Date"/>
+		<field name="importo" class="java.lang.Double"/>
+		<field name="codiceFattura" class="java.lang.String"/>
+	</subDataset>
 	<parameter name="codiceFattura" class="java.lang.String"/>
+	<parameter name="importo" class="java.lang.Double"/>
+	<parameter name="data" class="java.util.Date"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -28,7 +37,7 @@
 		</band>
 	</title>
 	<detail>
-		<band height="449" splitType="Stretch">
+		<band height="649" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="100" width="180" height="24" uuid="a4649d1a-ece2-46c0-a370-4197847eb36f"/>
 				<textElement>
@@ -50,10 +59,6 @@
 				</textElement>
 				<text><![CDATA[Codice della Fattura:]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="240" y="420" width="111" height="14" uuid="48f48482-4e86-4ff8-b26f-387f7ad2b08e"/>
-				<text><![CDATA[Fatture in fotmato PDF]]></text>
-			</staticText>
 			<textField pattern="MMMMM dd, yyyy">
 				<reportElement x="460" y="20" width="90" height="29" uuid="8cdb656f-af6d-4535-a2c6-c08cbb786a4d"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
@@ -71,16 +76,24 @@
 				<text><![CDATA[ora,]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="190" y="100" width="150" height="23" uuid="dd562c84-f0d7-451d-9f03-45beae800839"/>
-				<textFieldExpression><![CDATA[$P{data}]]></textFieldExpression>
+				<reportElement x="170" y="190" width="90" height="26" uuid="1fa44341-4984-4f38-9201-ba148ea41013"/>
+				<textFieldExpression><![CDATA[$P{codiceFattura}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="151" y="150" width="139" height="19" uuid="66c305db-3894-4d4c-9a88-e2cb270981f0"/>
+				<reportElement x="150" y="150" width="80" height="24" uuid="9a3c8c23-f6de-44c8-871e-07ddfb6cca86"/>
 				<textFieldExpression><![CDATA[$P{importo}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="170" y="190" width="100" height="30" uuid="db8ea202-43db-445c-8778-6b2e518e286b"/>
-				<textFieldExpression><![CDATA[$P{codiceFattura}]]></textFieldExpression>
+				<reportElement x="200" y="100" width="80" height="24" uuid="8bde9107-6acd-4e6b-b578-04dd64b66b8c"/>
+				<textFieldExpression><![CDATA[$P{data}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="230" y="600" width="111" height="14" uuid="48f48482-4e86-4ff8-b26f-387f7ad2b08e"/>
+				<text><![CDATA[Fatture in fotmato PDF]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="440" y="600" width="100" height="30" uuid="2478aec8-8ef3-4939-bb6b-3168305a30b7"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

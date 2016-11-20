@@ -20,8 +20,8 @@ public class Servizi {
 
 	//leggi la fattura
 	
-	public Fattura getFatturaConCodice(String CodiceAziendale){
-		Fattura fattura = fDao.readFatturaConCodice(CodiceAziendale);
+	public Fattura getFatturaConCodice(String codiceFattura){
+		Fattura fattura = fDao.readFatturaConCodice(codiceFattura);
 		return fattura;
 	}
 	
@@ -35,10 +35,6 @@ public class Servizi {
 	//leggi le fatture con mese e anno
 	public List<Fattura> getFattureConMeseEAnno(int mese, int anno){
 		
-		// se passavo Calendar dataC al metodo
-//		int mese = dataC.get(Calendar.MONTH);
-//		int anno = dataC.get(Calendar.YEAR);
-		
 		
 		
 		
@@ -50,6 +46,10 @@ public class Servizi {
 		
 		
 		return null;
+		// se passavo Calendar dataC al metodo
+//		int mese = dataC.get(Calendar.MONTH);
+//		int anno = dataC.get(Calendar.YEAR);
+		
 		
 	}
 	

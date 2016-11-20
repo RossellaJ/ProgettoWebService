@@ -39,7 +39,7 @@ public class FatturaDao {
 	}
 	//2a read con codiceAdiendale
 	
-			public Fattura readFatturaConCodice(String codiceAziendale) {
+			public Fattura readFatturaConCodice(String codiceFattura) {
 				
 				Session session = HibernateUtil.openSession();
 				Transaction tx = null;
@@ -49,8 +49,8 @@ public class FatturaDao {
 					tx = session.getTransaction();
 					
 					tx.begin();
-					Query query = session.createQuery("from Fattura where codiceAziendale=:codiceInserito");
-					query.setString("codiceInserito", codiceAziendale);
+					Query query = session.createQuery("from Fattura where codiceFattura=:codiceInserito");
+					query.setString("codiceInserito", codiceFattura);
 					f = (Fattura) query.uniqueResult();
 					tx.commit();
 					
