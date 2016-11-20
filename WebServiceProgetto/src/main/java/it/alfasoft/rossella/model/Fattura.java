@@ -17,7 +17,7 @@ public class Fattura {
 	
 	private Date data;
 	private double importo;
-	private String codiceAziendale;
+	private String codiceFattura;
 	
 	
 	
@@ -27,10 +27,10 @@ public class Fattura {
 
 
 
-	public Fattura(Date data, double importo, String codiceAziendale) {
+	public Fattura(Date data, double importo, String codiceFattura) {
 		this.data = data;
 		this.importo = importo;
-		this.codiceAziendale = codiceAziendale;
+		this.codiceFattura = codiceFattura;
 	}
 
 
@@ -71,14 +71,14 @@ public class Fattura {
 
 
 
-	public String getCodiceAziendale() {
-		return codiceAziendale;
+	public String getCodiceFattura() {
+		return codiceFattura;
 	}
 
 
 
-	public void setCodiceAziendale(String codiceAziendale) {
-		this.codiceAziendale = codiceAziendale;
+	public void setCodiceFattura(String codiceFattura) {
+		this.codiceFattura = codiceFattura;
 	}
 	
 	

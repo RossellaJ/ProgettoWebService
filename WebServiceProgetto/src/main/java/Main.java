@@ -1,6 +1,10 @@
+import java.util.Calendar;
 import java.util.Date;
 
 
+
+
+import it.alfasoft.rossella.dao.FatturaDao;
 import it.alfasoft.rossella.model.Fattura;
 import it.alfasoft.rossella.service.Servizi;
 
@@ -18,6 +22,10 @@ public class Main {
 //		Date d = new Date();
 //		Fattura f2 = new Fattura(d,2100,"002");
 //		s.creaFattura(f2);
+		
+		FatturaDao f = new FatturaDao();
+		
+		System.out.println("la lista è:"+f.readFattureConMeseEAnno(Calendar.getInstance()));
 		
 		
 

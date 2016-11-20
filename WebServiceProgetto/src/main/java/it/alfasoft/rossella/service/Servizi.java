@@ -33,10 +33,11 @@ public class Servizi {
 	}
 	
 	//leggi le fatture con mese e anno
-	public List<Fattura> getFattureConMeseEAnno(Calendar dataC){
+	public List<Fattura> getFattureConMeseEAnno(int mese, int anno){
 		
-		int mese = dataC.get(Calendar.MONTH);
-		int anno = dataC.get(Calendar.YEAR);
+		// se passavo Calendar dataC al metodo
+//		int mese = dataC.get(Calendar.MONTH);
+//		int anno = dataC.get(Calendar.YEAR);
 		
 		
 		

@@ -26,12 +26,12 @@ public class RisorsaFattura {
 	Servizi s = new Servizi();
 	
 	
-	@Path("/{codiceAziendale}")
+	@Path("/{codiceFattura}")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Fattura prendiFatturaConCodice(@PathParam("codiceAziendale") String codiceAziendale ){
+	public Fattura prendiFatturaConCodice(@PathParam("codiceFattura") String codiceFattura ){
 		
-		return s.getFatturaConCodice(codiceAziendale);
+		return s.getFatturaConCodice(codiceFattura);
 	}
 	
 	
@@ -48,7 +48,7 @@ public class RisorsaFattura {
 	public void aggiungiFattura(Fattura f){
 		
 		s.creaFattura(f);
-		System.out.println(f.getId()+" "+f.getImporto()+" "+f.getCodiceAziendale());
+		System.out.println(f.getId()+" "+f.getImporto()+" "+f.getCodiceFattura());
 	}
 	
 	@Path("/fattura")
