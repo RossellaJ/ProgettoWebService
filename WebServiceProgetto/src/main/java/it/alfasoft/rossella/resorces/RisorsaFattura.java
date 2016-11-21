@@ -58,7 +58,7 @@ public class RisorsaFattura {
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Fattura> prendiFattureConMeseEAnno(@BeanParam FiltroFattura f){
 		
-		System.out.println("Fatture corrispondenti al mese: "+ f.getMese()+"e all' anno: "+f.getAnno());
+		System.out.println("Fatture a partire da: "+ f.getDataInizio()+"fino a: "+f.getDataFine());
 		return new ArrayList<Fattura>();
 		
 		

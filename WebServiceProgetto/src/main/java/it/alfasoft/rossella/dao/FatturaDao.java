@@ -92,7 +92,7 @@ public class FatturaDao {
 			
 			//read tutte fatture con anno e mese
 			
-			public List<Fattura> readFattureConMeseEAnno(Calendar data){
+			public List<Fattura> readFattureConMeseEAnno(Date dataInizio, Date dataFine){
 				List<Fattura> listaFatture = new ArrayList<Fattura>();
 				
 				Session session = HibernateUtil.openSession();
@@ -102,9 +102,9 @@ public class FatturaDao {
 					tx = session.getTransaction();
 					tx.begin();
 					
-					Query query = session.createQuery("from Fattura where MONTH(data)=:meseInserito and YEAR(data)=:annoInserito ");
-					query.setInteger("meseInserito", data.get(Calendar.MONTH) );
-					query.setInteger("annoInserito", data.get(Calendar.YEAR) );
+					Query query = session.createQuery("from Fattura as f where f.data between :dataInizio and :dataFine");
+					query.setDate("dataInizio", dataInizio);
+					query.setDate("dataFine", dataFine );
 					
 					listaFatture= query.list();
 						

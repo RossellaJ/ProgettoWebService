@@ -4,24 +4,36 @@ import javax.ws.rs.QueryParam;
 
 public class FiltroFattura {
 	
-	private @QueryParam("mese")String mese;
-	private @QueryParam("anno") int anno;
+	private @QueryParam("dataInizio")String dataInizio;
+	private @QueryParam("dataFine") String dataFine;
 //	private @QueryParam("offset") int offset; 
 //	private @QueryParam("limit") int limit;
 	
 	
-	public String getMese() {
-		return mese;
+	
+	
+	
+	
+	public String getDataInizio() {
+		return dataInizio;
 	}
-	public void setMese(String mese) {
-		this.mese = mese;
+	public void setDataInizio(String dataInizio) {
+		this.dataInizio = dataInizio;
 	}
-	public int getAnno() {
-		return anno;
+	public String getDataFine() {
+		return dataFine;
 	}
-	public void setAnno(int anno) {
-		this.anno = anno;
+	public void setDataFine(String dataFine) {
+		this.dataFine = dataFine;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 //	public int getOffset() {
 //		return offset;
 //	}
