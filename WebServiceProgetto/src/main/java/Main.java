@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import dateUtil.MetodiDate;
 import it.alfasoft.rossella.dao.FatturaDao;
 import it.alfasoft.rossella.model.Fattura;
 import it.alfasoft.rossella.service.Servizi;
@@ -55,30 +56,12 @@ public class Main {
 		//s.creaPdfDaLetturaDBconCodice();
 		
 //--------------------	   DA STRING A DATE     ------------------------------
-		SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
-		String dateInString = "01-10-2016 10:20:56";
-		Date dataInizio = null;
-		try {
-			dataInizio = sdf.parse(dateInString);
-		} catch (ParseException e) {
-			
-			e.printStackTrace();
-		}
-		
-		SimpleDateFormat sdf2 = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
-		String dateInString2 = "30-11-2016 10:20:56";
-		Date dataFine = null;
-		try {
-			dataFine = sdf.parse(dateInString);
-		} catch (ParseException e) {
-			
-			e.printStackTrace();
-		}
-		
-		
-		fDao.readFattureConMeseEAnno(dataInizio, dataFine);
-		
-		
+		MetodiDate mD = new MetodiDate();
+		mD.ConvertiStringADate("01-03-2016 10:20:56");
+//		
+//		
+//		fDao.readFattureConMeseEAnno(dataInizio, dataFine);
+//		
 		
 		
 		
