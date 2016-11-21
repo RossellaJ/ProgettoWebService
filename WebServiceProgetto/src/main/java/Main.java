@@ -46,9 +46,10 @@ public class Main {
 //		for(Fattura f:lista){
 //			System.out.println(f.getCodiceFattura()+" "+f.getData()+" "+f.getImporto());
 //		}
-//		Date d = new Date();
-//		Fattura f = new Fattura(d,1423,"065");
-		s.creaPdfDaLetturaDBconCodice();
+		Date d = new Date();
+		Fattura f = new Fattura(d,1852,"74");
+		s.creaPdfDaPostFattura(f);
+		//s.creaPdfDaLetturaDBconCodice();
 		}
 
 }
