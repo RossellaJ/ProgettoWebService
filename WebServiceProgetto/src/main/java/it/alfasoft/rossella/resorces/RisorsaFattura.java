@@ -8,6 +8,8 @@ import java.util.List;
 
 
 
+
+
 import it.alfasoft.rossella.bean.FiltroFattura;
 import it.alfasoft.rossella.model.Fattura;
 import it.alfasoft.rossella.service.Servizi;
@@ -58,8 +60,11 @@ public class RisorsaFattura {
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Fattura> prendiFattureConMeseEAnno(@BeanParam FiltroFattura f){
 		
+		String dataInizio = f.getDataInizio();
+		String dataFine = f.getDataFine();
+			
 		System.out.println("Fatture a partire da: "+ f.getDataInizio()+"fino a: "+f.getDataFine());
-		return new ArrayList<Fattura>();
+		return new ArrayList<Fattura>(s.getFattereConDate(dataInizio, dataFine));
 		
 		
 	}

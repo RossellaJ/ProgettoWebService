@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import dateUtil.MetodiDate;
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperExportManager;
@@ -23,6 +24,7 @@ import it.alfasoft.rossella.model.Fattura;
 public class Servizi {
 	
 	FatturaDao fDao = new FatturaDao();
+	MetodiDate mD = new MetodiDate();
 	
 	//crea fattura in db
 	
@@ -44,49 +46,17 @@ public class Servizi {
 		return listaFatture;
 	}
 	
-	//leggi le fatture con mese e anno
-//	public List<Fattura> getFattureConMeseEAnno(String mese, String anno){
-//		System.out.println();
-//		List<Fattura> tuttoDB = this.getTutteFatture();
-//		List<Fattura> listaConMeseAnno = new ArrayList<Fattura>();
-//		
-//		for( Fattura fatTemp : tuttoDB){
-//			
-//			//converto data in calendar
-//			Calendar cal = Calendar.getInstance();
-//			Date data1= fatTemp.getData();
-//			cal.setTime(data1);
-//			
-//			//converto string che passa da request in int
-//			int meseInt = Integer.parseInt(mese);
-//			int annoInt = Integer.parseInt(anno);
-//			
-//			//estraggo mese e anno da calendar(proprio per questo l'ho convertiti-->Date ha metodi deprecati)
-//			int m = Calendar.getInstance().get(Calendar.MONTH);
-//			int a = Calendar.getInstance().get(Calendar.YEAR);
-//			
-//			//condizione su interi
-//			if( m == meseInt && a == annoInt){
-//				listaConMeseAnno.add(fatTemp);
-//			}
-//			
-//		}
-//		return listaConMeseAnno;
-		
-//	}
+
 	
+	//Metodo per convertire le String della request in http in Date con cui richiamare il Dao
 	public List<Fattura> getFattereConDate(String dataInizio, String dataFine){
-		List<Fattura> listaConDate = null;
 		
 		//converto String in Date
+		Date dataInizio1 = mD.ConvertiStringADate(dataInizio);
+		Date dataFine1 = mD.ConvertiStringADate(dataFine);
 		
-		
-		
-		
-		
-		
-		
-		return listaConDate;
+		//eseguo la query nel DB		
+		return fDao.readFattureConData(dataInizio1, dataFine1);
 		
 	
 	

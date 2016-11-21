@@ -92,7 +92,7 @@ public class FatturaDao {
 			
 			//read tutte fatture con anno e mese
 			
-			public List<Fattura> readFattureConMeseEAnno(Date dataInizio, Date dataFine){
+			public List<Fattura> readFattureConData(Date dataInizio, Date dataFine){
 				List<Fattura> listaFatture = new ArrayList<Fattura>();
 				
 				Session session = HibernateUtil.openSession();

@@ -8,7 +8,7 @@ public class MetodiDate {
 	
 	String dateInString = "01-10-2016 10:20:56";
 	//--------------------	   DA STRING A DATE     ------------------------------
-	public void ConvertiStringADate(String dateInString){	
+	public Date ConvertiStringADate(String dateInString){	
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
 			Date data = null;
 			try {
@@ -17,6 +17,7 @@ public class MetodiDate {
 				
 				e.printStackTrace();
 			}
-			System.out.println(data);
+			//System.out.println(data);
+			return data;
 	}
 }
