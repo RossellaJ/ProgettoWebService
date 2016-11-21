@@ -37,15 +37,17 @@ public class JasperReportServizio {
         List<Fattura> fatture = fDao.readTutteFatture();
 			
       // Converto la  lista to JRBeanCollectionDataSource 
-      JRBeanCollectionDataSource itemsJRBean = new JRBeanCollectionDataSource(fatture,false);
+     // JRBeanCollectionDataSource itemsJRBean = new JRBeanCollectionDataSource(fatture,false);
 		
 			
       //  una mappa per mandare i parametri a Jasper 
       Map<String, Object> parameters = new HashMap<String, Object>();
     
-      parameters.put("FatturaDataSource", itemsJRBean);
+      //parameters.put("FatturaDataSource", itemsJRBean);
+      parameters.put("importo", fDao.readFatturaConCodice("001").getImporto());
+      parameters.put("data", fDao.readFatturaConCodice("001").getData());
+      parameters.put("codiceFattura", fDao.readFatturaConCodice("001").getCodiceFattura());
       
-
       //  file compilato di jasper (.jasper) di Jasper Report per creare  PDF 
       JasperPrint jasperPrint = JasperFillManager.fillReport("formato.jasper", parameters, new JREmptyDataSource());
 
