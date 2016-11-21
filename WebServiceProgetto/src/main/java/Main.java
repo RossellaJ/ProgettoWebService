@@ -1,4 +1,5 @@
 
+import java.util.Date;
 import java.util.List;
 
 import it.alfasoft.rossella.model.Fattura;
@@ -41,11 +42,13 @@ public class Main {
 //			System.out.println(cal.getInstance().get(Calendar.MONTH));		
 //		}
 		
-		List<Fattura> lista = s.getFattureConMeseEAnno("10", "2016");
-		for(Fattura f:lista){
-			System.out.println(f.getCodiceFattura()+" "+f.getData()+" "+f.getImporto());
-		}
-
+//		List<Fattura> lista = s.getFattureConMeseEAnno("10", "2016");
+//		for(Fattura f:lista){
+//			System.out.println(f.getCodiceFattura()+" "+f.getData()+" "+f.getImporto());
+//		}
+//		Date d = new Date();
+//		Fattura f = new Fattura(d,1423,"065");
+		s.creaPdfDaLetturaDBconCodice();
 		}
 
 }

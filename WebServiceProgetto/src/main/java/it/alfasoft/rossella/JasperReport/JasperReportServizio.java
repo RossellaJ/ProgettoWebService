@@ -14,7 +14,6 @@ import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-
 import it.alfasoft.rossella.dao.FatturaDao;
 import it.alfasoft.rossella.model.Fattura;
 
@@ -25,7 +24,8 @@ public class JasperReportServizio {
 		
 		FatturaDao fDao = new FatturaDao();
 		
-		String nomeFile="FatturaAzienda2.pdf";
+		String codiceFattura=null;//prendocodice fattura da request
+		String nomeFile="FatturaAzienda "+codiceFattura+".pdf";
 		//metti concatenazione nel nome con parametro per non sovrascrivere
 		String percorso  = "C:\\Users\\corso\\Desktop\\Jasper\\";
 		 
