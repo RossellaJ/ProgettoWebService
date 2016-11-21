@@ -25,8 +25,8 @@ public class JasperReportServizio {
 		
 		FatturaDao fDao = new FatturaDao();
 		
-		String nomeFile="FatturaAzienda.pdf";
-		
+		String nomeFile="FatturaAzienda2.pdf";
+		//metti concatenazione nel nome con parametro per non sovrascrivere
 		String percorso  = "C:\\Users\\corso\\Desktop\\Jasper\\";
 		 
 		String fileFinale=percorso+nomeFile;
@@ -34,7 +34,7 @@ public class JasperReportServizio {
 		try {
 			
 		//la mia lista che mantiene i dati
-        List<Fattura> fatture = fDao.readTutteFatture();
+       // List<Fattura> fatture = fDao.readTutteFatture();
 			
       // Converto la  lista to JRBeanCollectionDataSource 
      // JRBeanCollectionDataSource itemsJRBean = new JRBeanCollectionDataSource(fatture,false);
@@ -44,6 +44,7 @@ public class JasperReportServizio {
       Map<String, Object> parameters = new HashMap<String, Object>();
     
       //parameters.put("FatturaDataSource", itemsJRBean);
+      //OTTIMIZZA!!!
       parameters.put("importo", fDao.readFatturaConCodice("001").getImporto());
       parameters.put("data", fDao.readFatturaConCodice("001").getData());
       parameters.put("codiceFattura", fDao.readFatturaConCodice("001").getCodiceFattura());

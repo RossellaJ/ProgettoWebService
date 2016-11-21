@@ -48,6 +48,7 @@ public class RisorsaFattura {
 	public void aggiungiFattura(Fattura f){
 		
 		s.creaFattura(f);
+		//crea pdf in servizi s.creaPdf()
 		System.out.println(f.getId()+" "+f.getImporto()+" "+f.getCodiceFattura());
 	}
 	
