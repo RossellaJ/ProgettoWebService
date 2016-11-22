@@ -15,6 +15,7 @@ import java.util.List;
 
 
 
+
 import it.alfasoft.rossella.bean.FiltroFattura;
 import it.alfasoft.rossella.model.Fattura;
 import it.alfasoft.rossella.service.Servizi;
@@ -24,6 +25,7 @@ import javax.ws.rs.BeanParam;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -54,7 +56,12 @@ public class RisorsaFattura {
 		
 		return new ArrayList<Fattura>(s.getTutteFatture());
 	}
-
+	
+	@PUT
+	//@Consumes(MediaType.APPLICATION_JSON)
+	public void modificaFattura(Fattura f){
+		s.modificaFattura(f);
+	}
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)

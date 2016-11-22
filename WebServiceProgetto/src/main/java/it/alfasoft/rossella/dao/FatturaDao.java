@@ -37,8 +37,33 @@ public class FatturaDao {
 		return res;
 
 	}
-	//2a read con codiceAdiendale
+	//2a read con id del DB
 	
+			public Fattura readFatturaConId(long id) {
+				
+				Session session = HibernateUtil.openSession();
+				Transaction tx = null;
+				Fattura f = null;
+				
+				try {	
+					tx = session.getTransaction();
+					
+					tx.begin();
+					Query query = session.createQuery("from Fattura where id=:idInserito");
+					query.setLong("idInserito", id);
+					f = (Fattura) query.uniqueResult();
+					tx.commit();
+					
+				} catch (Exception ex) {
+					tx.rollback();
+				} finally {
+					session.close();			
+				}		
+				return f;
+			}
+			
+			//2a read con codiceAdiendale
+			
 			public Fattura readFatturaConCodice(String codiceFattura) {
 				
 				Session session = HibernateUtil.openSession();
