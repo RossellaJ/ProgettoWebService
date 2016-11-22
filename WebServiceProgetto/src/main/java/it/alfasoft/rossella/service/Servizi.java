@@ -47,8 +47,9 @@ public class Servizi {
 	}
 	
 
-	
+	//leggi fatture in un INTERVALLO DI DATE
 	//Metodo per convertire le String della request in http in Date con cui richiamare il Dao
+	
 	public List<Fattura> getFattereConDate(String dataInizio, String dataFine){
 		
 		//converto String in Date
@@ -66,14 +67,14 @@ public class Servizi {
 	
 	//-------JASPER REPORT---> CREARE PDF da Fattura passata nel POST<---------------------
 	
-	public void creaPdfDaLetturaDBconCodice() {
+	public void creaPdfDaLetturaDBconCodice(String codiceFattura) {
 		
-		Fattura f = fDao.readFatturaConCodice("078");
-		String codiceFattura1 = f.getCodiceFattura();
+		Fattura f = fDao.readFatturaConCodice(codiceFattura);
+		
 		Date data1 = f.getData();
 		double importo1 = f.getImporto();
 		
-		String nomeFile = "FatturaAzienda " + codiceFattura1 + ".pdf";
+		String nomeFile = "FatturaAzienda " + codiceFattura + ".pdf";
 	
 		String percorso = "C:\\Users\\corso\\Desktop\\Jasper\\";
 
@@ -86,7 +87,7 @@ public class Servizi {
 
 			parameters.put("importo",importo1 );
 		    parameters.put("data",data1 );
-		    parameters.put("codiceFattura", codiceFattura1);
+		    parameters.put("codiceFattura", codiceFattura);
 
 			// file compilato di jasper (.jasper) di Jasper Report per creare
 			// PDF

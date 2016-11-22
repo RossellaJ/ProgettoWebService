@@ -90,7 +90,7 @@ public class FatturaDao {
 			return listaFatture;
 			}
 			
-			//read tutte fatture con anno e mese
+			//read tutte fatture con Date
 			
 			public List<Fattura> readFattureConData(Date dataInizio, Date dataFine){
 				List<Fattura> listaFatture = new ArrayList<Fattura>();
