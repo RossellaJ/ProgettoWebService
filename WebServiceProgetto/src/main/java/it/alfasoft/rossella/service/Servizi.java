@@ -65,7 +65,7 @@ public class Servizi {
 	
 	
 	
-	//-------JASPER REPORT---> CREARE PDF da Fattura passata nel POST<---------------------
+	//-------JASPER REPORT--->               CREARE PDF da Fattura            <---------------------
 	
 	public void creaPdfDaLetturaDBconCodice(String codiceFattura) {
 		
@@ -138,8 +138,8 @@ public class Servizi {
 
 			// file compilato di jasper (.jasper) di Jasper Report per creare
 			// PDF
-			JasperPrint jasperPrint = JasperFillManager.fillReport(
-					"formato.jasper", parameters, new JREmptyDataSource());
+			JasperPrint jasperPrint = JasperFillManager.fillReport(pathJasper,
+					 parameters, new JREmptyDataSource());
 
 			// outputStream per creare PDF
 			OutputStream outputStream = new FileOutputStream(new File(
