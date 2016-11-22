@@ -14,12 +14,14 @@ import java.util.List;
 
 
 
+
 import it.alfasoft.rossella.bean.FiltroFattura;
 import it.alfasoft.rossella.model.Fattura;
 import it.alfasoft.rossella.service.Servizi;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.BeanParam;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -40,13 +42,14 @@ public class RisorsaFattura {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Fattura prendiFatturaConCodice(@PathParam("codiceFattura") String codiceFattura ){
-		//s.creaPdfDaLetturaDBconCodice(codiceFattura);
+		//
+		s.creaPdfDaLetturaDBconCodice(codiceFattura);
 		return s.getFatturaConCodice(codiceFattura);
 	}
 	
 	
 	@GET
-	@Produces(MediaType.APPLICATION_JSON)
+	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 	public List<Fattura> prendiTutteFatture(){
 		
 		return new ArrayList<Fattura>(s.getTutteFatture());
@@ -54,7 +57,7 @@ public class RisorsaFattura {
 
 	
 	@POST
-	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
 	public Response aggiungiFattura(Fattura f, @Context HttpServletRequest request){
 		
 		String pathJasper=request.getServletContext().getRealPath("/jasper/formato.jasper");	
