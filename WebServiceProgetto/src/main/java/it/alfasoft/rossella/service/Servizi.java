@@ -44,25 +44,6 @@ public class Servizi {
 		return fDao.readFatturaConId(id);	
 	}
 	
-	//modifica la fattura
-	public Fattura modificaFattura(Fattura f){
-		
-		Fattura f1 = this.getFatturaConId(f.getId());
-		
-		Date dat = f.getData();
-		double impor = f.getImporto();
-		String codFat = f.getCodiceFattura();
-		
-		f1.setData(dat);
-		f1.setImporto(impor);
-		f1.setCodiceFattura(codFat);
-		
-		fDao.updateFattura(f1);
-		
-		System.out.println(f1.getData()+" "+f1.getImporto()+" "+f1.getCodiceFattura());
-		return f1;
-		
-	}
 	
 	
 	
@@ -95,6 +76,33 @@ public class Servizi {
 
 	}
 	
+	
+	//modifica la fattura
+	public Fattura modificaFattura(Fattura f){
+		
+		Fattura f1 = this.getFatturaConId(f.getId());
+		
+		Date dat = f.getData();
+		double impor = f.getImporto();
+		String codFat = f.getCodiceFattura();
+		
+		f1.setData(dat);
+		f1.setImporto(impor);
+		f1.setCodiceFattura(codFat);
+		
+		fDao.updateFattura(f1);
+		
+		System.out.println(f1.getData()+" "+f1.getImporto()+" "+f1.getCodiceFattura());
+		return f1;
+		
+	}
+	
+	//elimina la fattura dal database
+	
+	public String eliminaFattura(Fattura f){
+		return "La fattura è stata eliminata!";
+		
+	}
 	
 	
 	//-------JASPER REPORT--->               CREARE PDF da Fattura            <---------------------
