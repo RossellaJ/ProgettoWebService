@@ -50,23 +50,22 @@ public class Main {
 //		for(Fattura f:lista){
 //			System.out.println(f.getCodiceFattura()+" "+f.getData()+" "+f.getImporto());
 //		}
-		//Date d = new Date();
-		//Fattura f = new Fattura(d,1852,"74");
-		//s.creaPdfDaPostFattura(f);
-		s.creaPdfDaLetturaDBconCodice("93");
+		Date d = new Date();
+		Fattura f = new Fattura(d,1852,"74");
+		s.creaPdfDaPostFattura(f, "formato.jasper");
+		//s.creaPdfDaLetturaDBconCodice("93");
 		
 //--------------------	   DA STRING A DATE     ------------------------------
-		MetodiDate mD = new MetodiDate();
-		Date d1=mD.ConvertiStringADate("01-03-2016 10:20:56");
-		Date d2 = mD.ConvertiStringADate("25-09-2016 10:20:56");
+//		MetodiDate mD = new MetodiDate();
+//		Date d1=mD.ConvertiStringADate("01-03-2016 10:20:56");
+//		Date d2 = mD.ConvertiStringADate("25-09-2016 10:20:56");
 //		
-	List<Fattura> lista =	fDao.readFattureConData(d1, d2);
-	
-	for(Fattura f : lista){
-		System.out.println(f.getCodiceFattura()+" "+f.getImporto()+" "+f.getData());
-	}
-		
-		
+//	List<Fattura> lista =	fDao.readFattureConData(d1, d2);
+//	for(Fattura f : lista){
+//		System.out.println(f.getCodiceFattura()+" "+f.getImporto()+" "+f.getData());
+//	}
+//		
+//		
 		
 		
 		
