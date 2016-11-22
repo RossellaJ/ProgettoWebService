@@ -10,17 +10,25 @@ import java.util.List;
 
 
 
+
+
+
+
 import it.alfasoft.rossella.bean.FiltroFattura;
 import it.alfasoft.rossella.model.Fattura;
 import it.alfasoft.rossella.service.Servizi;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.BeanParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
 @Path("fatture")
 public class RisorsaFattura {
@@ -47,12 +55,21 @@ public class RisorsaFattura {
 	
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
-	public void aggiungiFattura(Fattura f){
+	public Response aggiungiFattura(Fattura f, @Context HttpServletRequest request){
 		
-		s.creaFattura(f);
-		s.creaPdfDaPostFattura(f);
+		String pathJasper=request.getServletContext().getRealPath("/jasper/formato.jasper");	
+		System.out.println(pathJasper);
+		
+		boolean b = s.creaFattura(f);
+		
+		if(b==true){
+		s.creaPdfDaPostFattura(f,pathJasper);
+		}
 		
 		System.out.println(f.getId()+" "+f.getImporto()+" "+f.getCodiceFattura());
+		return Response.status(Status.CREATED)
+				.entity(f)
+				.build();
 	}
 	
 	@Path("/fattura")

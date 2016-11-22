@@ -113,7 +113,7 @@ public class Servizi {
 
 	}
 	
-	public void creaPdfDaPostFattura(Fattura f) {
+	public void creaPdfDaPostFattura(Fattura f,String pathJasper) {
 		
 		
 		String codiceFattura1 = f.getCodiceFattura();
@@ -121,7 +121,6 @@ public class Servizi {
 		double importo1 = f.getImporto();
 		
 		String nomeFile = "FatturaAzienda " + codiceFattura1 + ".pdf";
-		//String nomeFile = "FatturaAzienda3.pdf";
 		
 		String percorso = "C:\\Users\\corso\\Desktop\\Jasper\\";
 
