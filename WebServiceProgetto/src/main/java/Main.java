@@ -61,11 +61,11 @@ public class Main {
 //		Date d2 = mD.ConvertiStringADate("25-09-2016 10:20:56");
 //		
 //	List<Fattura> lista =	fDao.readFattureConData(d1, d2);
-//	for(Fattura f : lista){
-//		System.out.println(f.getCodiceFattura()+" "+f.getImporto()+" "+f.getData());
+//	for(Fattura f1 : lista){
+//		System.out.println(f1.getCodiceFattura()+" "+f1.getImporto()+" "+f1.getData());
 //	}
-//		
-//		
+		
+		
 		
 		
 		

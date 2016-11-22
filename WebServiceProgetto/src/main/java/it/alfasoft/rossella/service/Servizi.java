@@ -57,10 +57,14 @@ public class Servizi {
 		Date dataFine1 = mD.ConvertiStringADate(dataFine);
 		
 		//eseguo la query nel DB		
-		return fDao.readFattureConData(dataInizio1, dataFine1);
+		List<Fattura> lista = fDao.readFattureConData(dataInizio1, dataFine1);
 		
-	
-	
+		for(Fattura f : lista){
+			System.out.println(f.getCodiceFattura()+" "+f.getImporto()+" "+f.getData());
+		}
+			
+		return lista;
+
 	}
 	
 	

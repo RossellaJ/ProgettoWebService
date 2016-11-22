@@ -40,7 +40,7 @@ public class RisorsaFattura {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Fattura prendiFatturaConCodice(@PathParam("codiceFattura") String codiceFattura ){
-		s.creaPdfDaLetturaDBconCodice(codiceFattura);
+		//s.creaPdfDaLetturaDBconCodice(codiceFattura);
 		return s.getFatturaConCodice(codiceFattura);
 	}
 	
