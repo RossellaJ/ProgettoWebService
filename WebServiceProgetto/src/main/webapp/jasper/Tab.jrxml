@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2016-11-24T00:32:09 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Tab" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="687cd1bb-895e-4348-b5e9-5ea622a97b95">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="BustaDataSource" uuid="9a094bfb-cb7d-4ce9-a761-8057bf74d206">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="nome" class="java.lang.String"/>
+		<field name="dataEmissione" class="java.lang.String">
+			<fieldDescription><![CDATA[dataEmissione]]></fieldDescription>
+		</field>
+		<field name="importo" class="java.lang.Float">
+			<fieldDescription><![CDATA[importo]]></fieldDescription>
+		</field>
+	</subDataset>
+	<parameter name="nome" class="java.lang.String"/>
+	<parameter name="importo" class="java.lang.Double"/>
+	<parameter name="dataEmissione" class="java.lang.Short"/>
+	<queryString language="SQL">
+		<![CDATA[Select * from BUSTAPAGA]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="89" splitType="Stretch">
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="389" y="17" width="100" height="30" uuid="5d9c7c0c-bd7d-46f7-9d2d-d8781992e691"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="-10" y="7" width="50" height="50" uuid="9a08abb0-5e9b-4c03-b093-2c20dca3622e"/>
+				<imageExpression><![CDATA["src/main/webapp/jasper/logo.jpg"]]></imageExpression>
+			</image>
+			<ellipse>
+				<reportElement x="60" y="0" width="329" height="80" uuid="e39bb7e4-8152-4899-8a25-7d7fb386c1d3"/>
+			</ellipse>
+			<staticText>
+				<reportElement x="150" y="17" width="160" height="40" uuid="cbbda497-0811-4a75-b7b1-20977f37755f"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tabella Buste Paga]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="274" splitType="Stretch">
+			<componentElement>
+				<reportElement x="20" y="40" width="380" height="200" uuid="f9732af1-d100-47ec-b682-caf103bab78e">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="BustaDataSource" uuid="67d7cd4c-5353-40ae-a5d9-c4a33116bf38">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource()]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="100" uuid="99580d67-14aa-46e9-8a30-2ccd9f7a5b1f">
+						<jr:tableHeader style="Table_TH" height="30"/>
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="64580df3-5df2-4517-b256-221cd9130a54"/>
+								<text><![CDATA[nome]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="100" height="30" uuid="151b3b0e-e291-4aff-acb6-0503c93ada55"/>
+								<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="80" uuid="555f3f05-b933-4aba-b5a5-d4c89e1356a7">
+						<jr:tableHeader style="Table_TH" height="30"/>
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="80" height="30" uuid="4681d952-bfd2-4e59-997f-03b944ab1023"/>
+								<text><![CDATA[dataEmissione]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="80" height="30" uuid="13c776e2-ce8b-4354-adf8-b264535d19c9"/>
+								<textFieldExpression><![CDATA[$F{dataEmissione}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="80356bba-1f16-4e04-8f36-14b754122092">
+						<jr:tableHeader style="Table_TH" height="30"/>
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="5928ac9c-9355-467e-a92c-d1c7da208301"/>
+								<text><![CDATA[importo]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="30" uuid="3efccd69-f0fc-481e-8bd2-37310c0c4fd9"/>
+								<textFieldExpression><![CDATA[$F{importo}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

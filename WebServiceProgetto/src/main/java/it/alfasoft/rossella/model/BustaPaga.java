@@ -21,7 +21,10 @@ public class BustaPaga implements Serializable{
 	
 	private long id_busta;
 	
-	private Dipendente dipendente;
+	//private Dipendente dipendente;
+	private String nome;
+	
+
 	private String dataEmissione;
 	private double importo;
 	
@@ -29,12 +32,12 @@ public class BustaPaga implements Serializable{
 		
 	}
 
-	public BustaPaga(long id_busta, Dipendente dipendente, String dataEmissione, double importo) {
-		
-		this.dipendente = dipendente;
-		this.dataEmissione = dataEmissione;
-		this.importo = importo;
-	}
+//	public BustaPaga(long id_busta, Dipendente dipendente, String dataEmissione, double importo) {
+//		
+//		this.dipendente = dipendente;
+//		this.dataEmissione = dataEmissione;
+//		this.importo = importo;
+//	}
 
 	public long getId_busta() {
 		return id_busta;
@@ -44,13 +47,13 @@ public class BustaPaga implements Serializable{
 		this.id_busta = id_busta;
 	}
 
-	public Dipendente getDipendente() {
-		return dipendente;
-	}
-
-	public void setDipendente(Dipendente dipendente) {
-		this.dipendente = dipendente;
-	}
+//	public Dipendente getDipendente() {
+//		return dipendente;
+//	}
+//
+//	public void setDipendente(Dipendente dipendente) {
+//		this.dipendente = dipendente;
+//	}
 
 	public String getDataEmissione() {
 		return dataEmissione;
@@ -72,18 +75,25 @@ public class BustaPaga implements Serializable{
 		return serialVersionUID;
 	}
 	
-	public boolean isValid() {
+//	public boolean isValid() {
+//
+//		boolean res=false;
+//		if(dipendente!=null && 
+//				!dataEmissione.isEmpty() && dataEmissione!=null &&
+//				importo!=0) {
+//			
+//			res=true;
+//		}
+//		
+//		return res;
+//}
 
-		boolean res=false;
-		if(dipendente!=null && 
-				!dataEmissione.isEmpty() && dataEmissione!=null &&
-				importo!=0) {
-			
-			res=true;
-		}
-		
-		return res;
-}
 
-
+	public String getNome() {
+		return nome;
+	}
+	
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 }
