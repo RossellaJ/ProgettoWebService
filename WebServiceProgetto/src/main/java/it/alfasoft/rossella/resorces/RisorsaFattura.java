@@ -46,8 +46,7 @@ public class RisorsaFattura {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Fattura prendiFatturaConCodice(@PathParam("codiceFattura") String codiceFattura ){
-		//
-		s.creaPdfDaLetturaDBconCodice(codiceFattura);
+		
 		return s.getFatturaConCodice(codiceFattura);
 	}
 	
@@ -70,7 +69,7 @@ public class RisorsaFattura {
 		boolean b = s.creaFattura(f);
 		
 		if(b==true){
-		s.creaPdfDaPostFattura(f,pathJasper);
+		s.creaPdfDaRequest(f,pathJasper);
 		}
 		
 		System.out.println(f.getId()+" "+f.getImporto()+" "+f.getCodiceFattura());
@@ -82,8 +81,16 @@ public class RisorsaFattura {
 	
 	@PUT
 	//@Consumes(MediaType.APPLICATION_JSON)
-	public void modificaFattura(Fattura f){
-		s.modificaFattura(f);
+	public void modificaFattura(Fattura f,@Context HttpServletRequest request){
+		
+		String pathJasper=request.getServletContext().getRealPath("/jasper/formato.jasper");	
+		System.out.println(pathJasper);
+		
+		boolean b = s.modificaFattura(f);
+		if(b==true){
+			s.creaPdfDaRequest(f, pathJasper);
+		}
+		System.out.println(f.getId()+" "+f.getImporto()+" "+f.getCodiceFattura());
 	}
 	
 	@DELETE

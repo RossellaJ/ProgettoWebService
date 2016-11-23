@@ -95,7 +95,7 @@ public class FatturaDao {
 
 			Session session = HibernateUtil.openSession();
 			Transaction tx = null;
-			Fattura f = null;
+			
 			try {	
 				tx = session.getTransaction();
 				tx.begin();
@@ -122,7 +122,7 @@ public class FatturaDao {
 				
 				Session session = HibernateUtil.openSession();
 				Transaction tx = null;
-				Fattura f = null;
+				
 				try {	
 					tx = session.getTransaction();
 					tx.begin();
@@ -214,6 +214,7 @@ public class FatturaDao {
 					return res;
 
 				}
-
+				
+				
 
 }

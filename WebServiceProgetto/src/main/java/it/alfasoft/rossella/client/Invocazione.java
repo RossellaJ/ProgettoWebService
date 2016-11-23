@@ -1,5 +1,7 @@
 package it.alfasoft.rossella.client;
 
+import it.alfasoft.rossella.model.BustaPaga;
+
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Invocation;

@@ -44,9 +44,6 @@ public class Servizi {
 		return fDao.readFatturaConId(id);	
 	}
 	
-	
-	
-	
 
 	//leggi tutte le fatture
 	
@@ -78,7 +75,7 @@ public class Servizi {
 	
 	
 	//modifica la fattura
-	public Fattura modificaFattura(Fattura f){
+	public boolean modificaFattura(Fattura f){
 		
 		Fattura f1 = this.getFatturaConId(f.getId());
 		
@@ -90,16 +87,18 @@ public class Servizi {
 		f1.setImporto(impor);
 		f1.setCodiceFattura(codFat);
 		
-		fDao.updateFattura(f1);
+		boolean b = fDao.updateFattura(f1);
 		
 		System.out.println(f1.getData()+" "+f1.getImporto()+" "+f1.getCodiceFattura());
-		return f1;
+		return b;
 		
 	}
 	
 	//elimina la fattura dal database
 	
 	public String eliminaFattura(Fattura f){
+		this.getFatturaConId(f.getId());
+		fDao.deleteFattura(f);
 		return "La fattura è stata eliminata!";
 		
 	}
@@ -107,53 +106,9 @@ public class Servizi {
 	
 	//-------JASPER REPORT--->               CREARE PDF da Fattura            <---------------------
 	
-	public void creaPdfDaLetturaDBconCodice(String codiceFattura) {
-		
-		Fattura f = fDao.readFatturaConCodice(codiceFattura);
-		
-		Date data1 = f.getData();
-		double importo1 = f.getImporto();
-		
-		String nomeFile = "FatturaAzienda " + codiceFattura + ".pdf";
 	
-		String percorso = "C:\\Users\\corso\\Desktop\\Jasper\\";
-
-		String fileFinale = percorso + nomeFile;
-
-		try {
-
-			// una mappa per mandare i parametri a Jasper
-			Map<String, Object> parameters = new HashMap<String, Object>();
-
-			parameters.put("importo",importo1 );
-		    parameters.put("data",data1 );
-		    parameters.put("codiceFattura", codiceFattura);
-
-			// file compilato di jasper (.jasper) di Jasper Report per creare
-			// PDF
-			JasperPrint jasperPrint = JasperFillManager.fillReport(
-					"formato.jasper", parameters, new JREmptyDataSource());
-
-			// outputStream per creare PDF
-			OutputStream outputStream = new FileOutputStream(new File(
-					fileFinale));
-
-			// scrivo in un file PDF
-			JasperExportManager.exportReportToPdfStream(jasperPrint,
-					outputStream);
-			System.out.println("il File.pdf e' stato creato");
-
-		} catch (JRException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
 	
-	public void creaPdfDaPostFattura(Fattura f,String pathJasper) {
+	public void creaPdfDaRequest(Fattura f,String pathJasper) {
 		
 		
 		String codiceFattura1 = f.getCodiceFattura();

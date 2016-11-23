@@ -1,5 +1,7 @@
 package it.alfasoft.rossella.client;
 
+import it.alfasoft.rossella.model.BustaPaga;
+
 import javax.ws.rs.client.Invocation;
 
 public class InvocazioneBustePaga extends Invocazione{
@@ -9,5 +11,7 @@ public class InvocazioneBustePaga extends Invocazione{
 		
 		return targetBustePaga.request().buildGet();
 	}
+
+	
 
 }
