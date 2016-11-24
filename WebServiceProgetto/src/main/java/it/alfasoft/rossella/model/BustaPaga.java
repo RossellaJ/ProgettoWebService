@@ -4,10 +4,14 @@ import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlRootElement;
 
 
-
+@Entity
 @ManagedBean(name="bp", eager=true)
 @SessionScoped
 @XmlRootElement
@@ -18,7 +22,8 @@ public class BustaPaga implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	
+	@Id 
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id_busta;
 	
 	//private Dipendente dipendente;
@@ -38,6 +43,13 @@ public class BustaPaga implements Serializable{
 //		this.dataEmissione = dataEmissione;
 //		this.importo = importo;
 //	}
+
+	public BustaPaga(String nome, String dataEmissione, double importo) {
+		super();
+		this.nome = nome;
+		this.dataEmissione = dataEmissione;
+		this.importo = importo;
+	}
 
 	public long getId_busta() {
 		return id_busta;

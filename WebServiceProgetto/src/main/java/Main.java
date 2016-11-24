@@ -5,7 +5,9 @@ import java.util.Date;
 import java.util.List;
 
 import dateUtil.MetodiDate;
+import it.alfasoft.rossella.dao.BustaPagaDao;
 import it.alfasoft.rossella.dao.FatturaDao;
+import it.alfasoft.rossella.model.BustaPaga;
 import it.alfasoft.rossella.model.Fattura;
 import it.alfasoft.rossella.service.Servizi;
 
@@ -31,10 +33,10 @@ public class Main {
 //		Fattura f3 = new Fattura(d3,2700,"003");
 //		s.creaFattura(f3);
 //		
-		Date d4 = new Date();
-		Fattura f4 = new Fattura(d4,850,"004");
-		s.creaFattura(f4);
-		
+//		Date d4 = new Date();
+//		Fattura f4 = new Fattura(d4,850,"004");
+//		s.creaFattura(f4);
+//		
 		
 //		
 		
@@ -75,8 +77,16 @@ public class Main {
 //		for ( Fattura f : lista){
 //			s.eliminaFattura(f);
 //		}
+//		-------------------   BUSTA PAGA  ---------------------------------
+		BustaPaga b1 = new BustaPaga("Gennaro","25/08/2016",2500);
+		BustaPaga b2 = new BustaPaga("Francesca","03/11/2016",900);
+		BustaPaga b3 = new BustaPaga("Cosima","14/10/2016",1400);
 		
+		BustaPagaDao bDao = new BustaPagaDao();
 		
+		bDao.createBusta(b1);
+		bDao.createBusta(b2);
+		bDao.createBusta(b3);
 		
 		}
 
