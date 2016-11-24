@@ -1,5 +1,7 @@
 package it.alfasoft.rossella.client;
 
+import java.util.List;
+
 import it.alfasoft.rossella.model.BustaPaga;
 
 import javax.ws.rs.client.Client;
@@ -16,6 +18,6 @@ public abstract class Invocazione {
 	
 	
 	abstract Invocation getTutteBustePaga();
-	
+	//abstract List<BustaPaga> getAllBuste();
 	
 }

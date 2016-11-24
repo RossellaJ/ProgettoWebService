@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
+<!-- 2016-11-18T17:03:47 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ElencoClienti" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2a4bff4b-3393-46eb-9517-fea55564929b">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="ClienteDataSource" uuid="cc6dc9f6-5ed6-482e-96de-56249c71d307">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="nome" class="java.lang.String"/>
+		<field name="cognome" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+	</subDataset>
+	<subDataset name="Dataset1" whenResourceMissingType="Empty" uuid="b5ed1f51-2de2-41b2-aeb5-856b1e86907f">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="Field_1" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="ClienteDataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="Dataset1" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="importo" class="java.lang.Double"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="576" splitType="Stretch">
+			<staticText>
+				<reportElement x="200" y="0" width="170" height="30" uuid="763d37ee-7105-4a4e-bd65-4c2d9f244343"/>
+				<textElement>
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Alfasoft ]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="10" y="0" width="151" height="30" uuid="8d987e53-91ae-47d2-bfed-a932503bcdc1"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="442" y="0" width="100" height="80" uuid="ce26d47a-9d69-49ce-991b-e8dba85e2613"/>
+				<imageExpression><![CDATA["LogoAlfasoft.png"]]></imageExpression>
+			</image>
+			<componentElement>
+				<reportElement x="0" y="128" width="555" height="110" uuid="b2877c97-cbcb-4fe7-8a49-73f01908efc3">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="ClienteDataSource" uuid="c2b0775a-25ed-414e-ba5b-16e0c1d81729">
+						<dataSourceExpression><![CDATA[$P{ClienteDataSource}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="210" uuid="ad7a2e18-51d3-4d68-be44-cec9d288c406">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonna1"/>
+						<jr:tableHeader style="Table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="210" height="30" uuid="f266d289-1a38-414d-8e98-627187c566a2"/>
+								<textElement>
+									<font size="18" isBold="true"/>
+								</textElement>
+								<text><![CDATA[        Nome Cliente ]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="210" height="30" uuid="4a8654c3-8220-4bec-b084-8a990ccaa445"/>
+								<textElement>
+									<font size="16"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="230" uuid="76eb0bd9-3937-48a7-b381-6ce11f64bf2b">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonna2"/>
+						<jr:tableHeader style="Table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="230" height="30" uuid="f03c6101-018c-48ae-936b-c022b696263d"/>
+								<textElement>
+									<font size="18" isBold="true"/>
+								</textElement>
+								<text><![CDATA[           Cognome Cliente]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="230" height="30" uuid="433d57fd-622d-438d-845f-196e915e00a5"/>
+								<textElement>
+									<font size="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{cognome}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="3" y="94" width="172" height="30" uuid="9a6fbe2b-df3c-4fa8-9d2f-5dea7325245c"/>
+				<textElement>
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Elenco Clienti ]]></text>
+			</staticText>
+			<textField pattern="HH:mm">
+				<reportElement x="10" y="46" width="260" height="30" uuid="262ea28b-25dd-4037-920f-503dc3485d7b"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="280" y="46" width="114" height="65" uuid="1f466849-7413-4447-b515-2bcb3937f9a9"/>
+				<imageExpression><![CDATA["LogoAlfasoft.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="23" y="285" width="57" height="30" uuid="0fcac587-807f-4030-ae9c-47b909549c43"/>
+				<text><![CDATA[Importo :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="99" y="290" width="100" height="30" uuid="5238f258-b375-4bad-9b41-63f141277d0f"/>
+				<textFieldExpression><![CDATA[$P{importo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

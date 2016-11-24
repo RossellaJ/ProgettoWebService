@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,6 +26,10 @@ public class JasperMainTab {
 
 		BustaPagaDao bDao = new BustaPagaDao();
 		
+		String pathJasper="Tab.jasper";	
+		System.out.println(pathJasper);
+		String pathJasperImm="logo.jpg";	
+		System.out.println(pathJasperImm);
 		
 		String nomeFile="TabellaBustePaga.pdf";
 		//metti concatenazione nel nome con parametro per non sovrascrivere
@@ -35,8 +40,8 @@ public class JasperMainTab {
 		try {
 			
 		//la mia lista che mantiene i dati
-        List<BustaPaga> buste = bDao.readTutteBustePaga();
-			
+        List<BustaPaga> buste =bDao.readTutteBustePaga() ;
+	
       // Converto la  lista to JRBeanCollectionDataSource 
       JRBeanCollectionDataSource itemsJRBean = new JRBeanCollectionDataSource(buste,false);
 		
@@ -44,11 +49,12 @@ public class JasperMainTab {
       //  una mappa per mandare i parametri a Jasper 
       Map<String, Object> parameters = new HashMap<String, Object>();
     
-      parameters.put("FatturaDataSource", itemsJRBean);
-    
+      parameters.put("BustaDataSource", itemsJRBean);
+      parameters.put("logo", pathJasperImm);
+
      
       //  file compilato di jasper (.jasper) di Jasper Report per creare  PDF 
-      JasperPrint jasperPrint = JasperFillManager.fillReport("Tab.jasper", parameters, new JREmptyDataSource());
+      JasperPrint jasperPrint = JasperFillManager.fillReport(pathJasper, parameters, new JREmptyDataSource());
 
       //outputStream per creare PDF 
       OutputStream outputStream = new FileOutputStream(new File(fileFinale));

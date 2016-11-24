@@ -65,11 +65,13 @@ public class RisorsaFattura {
 		
 		String pathJasper=request.getServletContext().getRealPath("/jasper/formato.jasper");	
 		System.out.println(pathJasper);
+		String pathJasperImm=request.getServletContext().getRealPath("/jasper/logo.jpg");	
+		System.out.println(pathJasperImm);
 		
 		boolean b = s.creaFattura(f);
 		
 		if(b==true){
-		s.creaPdfDaRequest(f,pathJasper);
+		s.creaPdfDaRequest(f,pathJasper,pathJasperImm);
 		}
 		
 		System.out.println(f.getId()+" "+f.getImporto()+" "+f.getCodiceFattura());
@@ -79,19 +81,19 @@ public class RisorsaFattura {
 	}
 	
 	
-	@PUT
-	//@Consumes(MediaType.APPLICATION_JSON)
-	public void modificaFattura(Fattura f,@Context HttpServletRequest request){
-		
-		String pathJasper=request.getServletContext().getRealPath("/jasper/formato.jasper");	
-		System.out.println(pathJasper);
-		
-		boolean b = s.modificaFattura(f);
-		if(b==true){
-			s.creaPdfDaRequest(f, pathJasper);
-		}
-		System.out.println(f.getId()+" "+f.getImporto()+" "+f.getCodiceFattura());
-	}
+//	@PUT
+//	//@Consumes(MediaType.APPLICATION_JSON)
+//	public void modificaFattura(Fattura f,@Context HttpServletRequest request){
+//		
+//		String pathJasper=request.getServletContext().getRealPath("/jasper/formato.jasper");	
+//		System.out.println(pathJasper);
+//		
+//		boolean b = s.modificaFattura(f);
+//		if(b==true){
+//			s.creaPdfDaRequest(f, pathJasper);
+//		}
+//		System.out.println(f.getId()+" "+f.getImporto()+" "+f.getCodiceFattura());
+//	}
 	
 	@DELETE
 	public void eliminaFattura(Fattura f){
