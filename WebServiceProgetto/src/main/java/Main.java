@@ -18,7 +18,7 @@ public class Main {
 		
 		Servizi s = new Servizi();
 		FatturaDao fDao = new FatturaDao();
-		
+		BustaPagaDao bDao = new BustaPagaDao();
 		//s.getFattureConMeseEAnno("10", "2016");
 		
 //		Date d = new Date();
@@ -78,15 +78,17 @@ public class Main {
 //			s.eliminaFattura(f);
 //		}
 //		-------------------   BUSTA PAGA  ---------------------------------
-		BustaPaga b1 = new BustaPaga("Gennaro","25/08/2016",2500);
-		BustaPaga b2 = new BustaPaga("Francesca","03/11/2016",900);
-		BustaPaga b3 = new BustaPaga("Cosima","14/10/2016",1400);
+//		BustaPaga b1 = new BustaPaga("Gennaro","25/08/2016",2500);
+//		BustaPaga b2 = new BustaPaga("Francesca","03/11/2016",900);
+//		BustaPaga b3 = new BustaPaga("Cosima","14/10/2016",1400);
+//		
+//		BustaPagaDao bDao = new BustaPagaDao();
+//		
+//		bDao.createBusta(b1);
+//		bDao.createBusta(b2);
+//		bDao.createBusta(b3);
 		
-		BustaPagaDao bDao = new BustaPagaDao();
-		
-		bDao.createBusta(b1);
-		bDao.createBusta(b2);
-		bDao.createBusta(b3);
+		 List<BustaPaga> buste = bDao.readTutteBustePaga();
 		
 		}
 

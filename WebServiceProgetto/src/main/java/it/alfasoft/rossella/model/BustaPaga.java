@@ -1,6 +1,7 @@
 package it.alfasoft.rossella.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -108,4 +109,6 @@ public class BustaPaga implements Serializable{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
+	
 }
